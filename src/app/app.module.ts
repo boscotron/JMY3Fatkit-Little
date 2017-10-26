@@ -7,6 +7,7 @@ import { SplitPane } from '../providers/split-pane';
 import { Common } from '../providers/common';
 
 import { jmyapis } from '../providers/jmyapis';
+import { JMYDB } from '../providers/jmydb';
 import { HttpModule } from "@angular/http";
 import { Welcome } from '../pages/welcome/welcome';
 import { Login } from '../pages/login/login';
@@ -56,7 +57,7 @@ import { LinkyModule } from 'angular-linky';
   ],
   providers: [
     StatusBar,
-    SplashScreen,AuthService,SplitPane,Common,jmyapis,
+    SplashScreen,AuthService,SplitPane,Common,jmyapis,JMYDB,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

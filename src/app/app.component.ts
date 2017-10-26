@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, App, MenuController, NavController,ToastController } from 'ionic-angular';
+import { Nav, Platform, App, MenuController, NavController,ToastController, AlertController  } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SplitPane } from '../providers/split-pane';
@@ -16,6 +16,7 @@ export class MyApp {
   public empresas : any;
   public empresasApis : any;
   public nomUsuario : any;
+  divs = {"empresa":false};
   rootPage:any = Welcome;
   pages: Array<{title: string, component: any, icon: any, api: any}>;
   pagesView: Array<{title: string, component: any, icon: any}>;
@@ -24,7 +25,7 @@ export class MyApp {
           "idEmpresa":""
   };
 
-  constructor(  platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public app: App, public splitPane: SplitPane, public menu: MenuController,public toastCtrl: ToastController, public jmyApis: jmyapis) {
+  constructor(  platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public app: App, public splitPane: SplitPane, public menu: MenuController,public toastCtrl: ToastController, public jmyApis: jmyapis,public alertCtrl: AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -64,7 +65,7 @@ export class MyApp {
 
     /* NO EDITAR DESDE AQUI */
     this.pagesView=[];
-
+    this.divs.empresa=false;
      if(data!=null){
         console.log(this.pages);
         //this.pagesView=this.pages;
@@ -77,6 +78,30 @@ export class MyApp {
       
      }
   }
+
+salirConfirmar() {
+    let confirm = this.alertCtrl.create({
+      title: 'Estas seguro',
+      message: '¿que ya deseas salir?',  
+      buttons: [{
+          text: 'Regresar',
+          handler: () => {
+            console.log('Disagree clicked');
+          }},{
+          text: 'Salir',
+          handler: () => {
+            console.log('Salir');
+            this.logout();
+          }}]});
+    confirm.present();
+  }
+
+
+ btnEmpresa(){
+   if(this.divs.empresa) this.divs.empresa=false; else this.divs.empresa=true;
+ }
+
+
 nombreUsuario(){const d=JSON.parse(localStorage.getItem('userData'));
     if(d!=undefined){return d.userData.name;}}
 

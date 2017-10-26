@@ -5,40 +5,42 @@
   <ion-menu [content]="content" >
     <ion-header>
       <ion-toolbar>
-        <ion-title><ion-icon name="reorder"></ion-icon> Menu</ion-title>
+        <ion-title><img width="26" style="vertical-align: middle;" src="assets/images/ico_700x700.png"> Panel </ion-title>
       </ion-toolbar>
     </ion-header>
    
  
 
   
-     <ion-content>
+     <ion-content id="asideMenu"> 
 
-      <ion-card>
+      <ion-card id="profile"> 
         <ion-item>
           <ion-avatar item-start>
             <ion-icon name="contact"></ion-icon>
           </ion-avatar>
           <h2>{{nombreUsuario()}}</h2>
-        
         </ion-item>
 
-       <ion-item>
-      <ion-label floating>Empresa</ion-label>
-      <ion-select (ionChange)='cambiarEmpresa()' [(ngModel)]="formulario.idEmpresa" interface="popover"  okText="Cambiar" cancelText="Cancelar">
-          <ion-option *ngFor="let empresa of empresas " value="{{empresa.id_empresa}}">
-                      {{empresa.nombre}}
-                  </ion-option>
-
-       
-      </ion-select>
-    </ion-item>
-
-        <ion-row>
-          <ion-col>
-           
+        <ion-item class="tools">
+          <ion-col no-padding no-margin>
+            <button ion-button small no-margin class="pBtn"><ion-icon name="build"></ion-icon></button>
           </ion-col>
-        </ion-row>
+          <ion-col no-padding no-margin>
+            <button ion-button small no-margin class="pBtn" (click)="btnEmpresa()"><ion-icon name="briefcase"></ion-icon></button>
+          </ion-col>
+          <ion-col no-padding no-margin>
+            <button ion-button small no-margin class="pBtn" (click)="salirConfirmar()"><ion-icon name="log-out"></ion-icon></button>
+          </ion-col>
+         </ion-item>
+
+
+        <ion-item *ngIf="!!divs.empresa">
+          <ion-label floating>Empresa</ion-label>
+          <ion-select (ionChange)='cambiarEmpresa()' [(ngModel)]="formulario.idEmpresa" interface="popover"  okText="Cambiar" cancelText="Cancelar">
+              <ion-option *ngFor="let empresa of empresas " value="{{empresa.id_empresa}}">{{empresa.nombre}}</ion-option>
+          </ion-select>
+        </ion-item>
 
       </ion-card>
     <ion-list>
