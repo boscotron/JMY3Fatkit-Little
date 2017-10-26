@@ -78,7 +78,7 @@ var DataBasePage = (function () {
 DataBasePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-data-base',template:/*ion-inline-start:"C:\xampp\htdocs\test\ionic\JMY3Fatkit-Little\src\pages\data-base\data-base.html"*/'<!--\n\n  Generated template for the DataBasePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Data Base</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\test\ionic\JMY3Fatkit-Little\src\pages\data-base\data-base.html"*/,
+        selector: 'page-data-base',template:/*ion-inline-start:"C:\xampp\htdocs\test\ionic\JMY3Fatkit-LittleB\src\pages\data-base\data-base.html"*/'<!--\n\n  Generated template for the DataBasePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Data Base</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\test\ionic\JMY3Fatkit-LittleB\src\pages\data-base\data-base.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], DataBasePage);

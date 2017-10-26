@@ -32960,9 +32960,7 @@ ion-navbar.toolbar {
 
 ::-webkit-scrollbar {
   width: 0px;
-  /* remove scrollbar space */
   background: transparent;
-  /* optional: just make scrollbar invisible */
 }
 
 #profile ion-icon {
@@ -32981,6 +32979,7 @@ ion-navbar.toolbar {
 
 .tools ion-label {
   text-align: right;
+  margin: 0px !important;
 }
 
 .navbarLogo {
