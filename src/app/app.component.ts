@@ -17,7 +17,7 @@ export class MyApp {
   public empresas : any;
   public empresasApis : any;
   public nomUsuario : any;
-
+  public nombreEmpresa:any;
   divs = {"empresa":false,
           "editarPerfil":false
         };
@@ -80,7 +80,7 @@ export class MyApp {
         this.empresasApis = this.jmyApis.verempresasapis(this.formulario.idEmpresa);
         this.vermenu(this.formulario.idEmpresa);
         this.nombreUsuario();
-
+        this.nombreEmpresa=this.vNE(this.formulario.idEmpresa);
       }else{
       
      }
@@ -179,8 +179,15 @@ salirConfirmar() {
 nombreUsuario(){const d=JSON.parse(localStorage.getItem('userData'));
   if(d!=undefined){ return(this.jmyFatKit.user!=undefined)?this.jmyFatKit.user.nombre:d.userData.name; } }
 
+vNE(id){
+  var aa=this.jmyApis.datosEmpresa(this.jmyApis.empresaactual());
+  console.log(aa);
+  return aa.nombre;
+}
 cambiarEmpresa(){const idEmpresa = this.formulario.idEmpresa;
-  this.vermenu(idEmpresa);location.reload();}
+  this.vermenu(idEmpresa);location.reload();
+  this.nombreEmpresa=this.vNE(idEmpresa);
+}
 
 vermenu(idEmpresa){
   var h=this.pages;

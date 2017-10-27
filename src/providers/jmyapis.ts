@@ -11,6 +11,7 @@ export class jmyapis {
   public userDetails : any;
   public resposeData : any;
   public dataSet : any;
+  public tm : any;
   public test : any;
   public resultado : any;
   tb:any;
@@ -119,6 +120,17 @@ export class jmyapis {
     var d = JSON.parse(localStorage.getItem('jmyData'));
      if(d!=undefined)
        return d.primerempresa;
+  }
+  datosEmpresa(id){
+    var em = this.verempresas();
+    
+    if(em!=undefined){
+      for(var i =0;i<em.length;i++){
+        this.tm = em[i];
+        if(this.tm.id_empresa==id)
+          return this.tm;
+      }
+    }
   }
 
 
