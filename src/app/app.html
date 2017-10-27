@@ -20,11 +20,12 @@
             <ion-icon name="contact"></ion-icon>
           </ion-avatar>
           <h2>{{nombreUsuario()}}</h2>
+          <p>{{formulario.idEmpresa}}</p>
         </ion-item>
 
         <ion-item class="tools">
           <ion-col no-padding no-margin>
-            <button ion-button small no-margin class="pBtn"><ion-icon name="build"></ion-icon></button>
+            <button ion-button small no-margin class="pBtn" (click)="btnEditar()"><ion-icon name="build"></ion-icon></button>
           </ion-col>
           <ion-col no-padding no-margin>
             <button ion-button small no-margin class="pBtn" (click)="btnEmpresa()"><ion-icon name="briefcase"></ion-icon></button>
@@ -34,13 +35,22 @@
           </ion-col>
          </ion-item>
 
-
         <ion-item *ngIf="!!divs.empresa">
           <ion-label floating>Empresa</ion-label>
           <ion-select (ionChange)='cambiarEmpresa()' [(ngModel)]="formulario.idEmpresa" interface="popover"  okText="Cambiar" cancelText="Cancelar">
               <ion-option *ngFor="let empresa of empresas " value="{{empresa.id_empresa}}">{{empresa.nombre}}</ion-option>
           </ion-select>
         </ion-item>
+
+        <ion-item class="tools" ion-item *ngIf="!!divs.editarPerfil">
+          <ion-col no-padding no-margin>
+            <button ion-button small no-margin class="pBtn" (click)="editarPerfil()"><ion-icon name="person"> </ion-icon> Perfil </button>
+          </ion-col>
+          <ion-col no-padding no-margin>
+            <button ion-button small no-margin class="pBtn" (click)="editarPass()"><ion-icon name="key"> </ion-icon> Contraseña</button>
+          </ion-col>
+         </ion-item>
+
 
       </ion-card>
     <ion-list>

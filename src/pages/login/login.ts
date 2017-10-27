@@ -43,14 +43,10 @@ export class Login {
       if(this.resposeData.userData){
         localStorage.setItem('userData', JSON.stringify(this.resposeData) );
         localStorage.setItem('jmyData', JSON.stringify(this.resposeData.jmyapi) );
-        this.navCtrl.push(TabsPage);
-        this.menu.enable(true);
-
+        //this.navCtrl.push(TabsPage);
+        //this.menu.enable(true);
+        this.presentToast("Cargando...");
         location.reload();
-        this.platform.pause.subscribe(() => {
-              console.log('paused');
-          });
-          
       }else{
         this.presentToast("El usuario o contraseña no es valido");
      }}, (err) => {

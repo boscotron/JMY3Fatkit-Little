@@ -27,41 +27,15 @@ export class JMYDB {
     console.log('jmydb inc');
     
   } 
-  /*
-    jmy({
-          "fn":"ver", // ver, guardar
-          "head":{
-            "tabla":"DBINDEX", // *obligatorio ver, guardar
-            //"ID_F":"DBINDEX", // opcional ver, guardar
-            //"COL":{"nombre_db","nombre"}, // opcional ver
-            //"SALIDA":{"nombre_db","nombre"}, // opcional ver
-            //"ID_V":{}, // opcional ver
-            //"ID_S":{}, // opcional ver
-            //"LIKE_V":{"angora","luciernaga"}, // opcional ver
-            //"LIKE_V_OPER":"OR", // opcional ver
-            //"resultado" : "api_menu", // 
-          }, 
-          "body":{
-            "varialbe1":"guardar uno",
-            "varialbe2":{"guardar uno","guardar dos"},
-          }, //  guardar
-    });
-  */
   public jmy(datos){
-
-      //var 
       var data = JSON.parse(localStorage.getItem('userData'));
       if(data!=undefined){
-
-
-        
             this.userDetails = data.userData;
             this.userPostData.user_id = this.userDetails.user_id;
             this.userPostData.token = this.userDetails.token;
             this.userPostData.fn = datos.fn;       
             this.userPostData.head = datos.head;
             this.userPostData.body = datos.body;
-
             console.log(this.userPostData);
             //this.common.presentLoading();
             this
@@ -80,13 +54,6 @@ export class JMYDB {
   }
 
   public jmyUsuarios(datos){
-    /*
-      jmyUsuarios({"fn":"lista"}); // lista de usuarios
-      jmyUsuarios({"fn":"ver","id_user":"1"}); // ver usuario
-      jmyUsuarios({"fn":"guardar","id_user":"1", "body":{"var1":"var1"}}); // Guardar configuraciones del usuario
-    */
-
-      //var 
       const data = JSON.parse(localStorage.getItem('userData'));
       this.userDetails = data.userData;
       this.userPostData.user_id = this.userDetails.user_id;
@@ -100,16 +67,10 @@ export class JMYDB {
           this.resultado=result;       
           console.log(this.resultado);
         }, (err) => {
-          //Connection failed message
         });
   }
 
-  alerta(men) {
-    const toast = this.toastCtrl.create({
-      message: men,
-      duration: 9000,
-      position: 'top'
-    });
+  alerta(men) {const toast = this.toastCtrl.create({message: men, duration: 9000,position: 'top'});
     toast.present();
    }
 
