@@ -151,14 +151,18 @@ export class jmyapis {
      return (data!=null) ? data.empresaDisp:[];} 
   verempresasapis(idEmpresa){
      const data = JSON.parse(localStorage.getItem('jmyData'));
-     return (data!=undefined)? data.empresasApis[idEmpresa]:0;}
+     console.log(data);
+     if (data!=undefined && idEmpresa!=undefined){
+          return (data.empresasApis[idEmpresa]!=null)? data.empresasApis[idEmpresa]:0;}
+        }
   empresaapi(idEmpresa){
+    if(idEmpresa!=undefined){
     var data = JSON.parse(localStorage.getItem('jmyData'));
-    if(data!=undefined){
+    if(data.empresaApi!=null ){
     this.cambiarempresa(idEmpresa);  
     if(data.empresaApi[idEmpresa]!=undefined){
       return data.empresaApi[idEmpresa].api;
-    }else{return null;}}}
+    }else{return null;}}}else{return [];}}
    cambiarempresa(idEmpresa){
     var data = JSON.parse(localStorage.getItem('jmyData'));
     if(data!=undefined){

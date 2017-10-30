@@ -3,7 +3,8 @@ import {IonicPage, NavController} from 'ionic-angular';
 import {AuthService} from "../../providers/auth-service";
 import { ToastController } from 'ionic-angular';
 
-import {TabsPage} from '../tabs/tabs';
+//import {TabsPage} from '../tabs/tabs';
+
 import {Login} from "../login/login";
 
 /**
@@ -17,7 +18,16 @@ import {Login} from "../login/login";
 export class Signup {
   resposeData : any;
   tmpBSK : any;
-  userData = {"username":"", "password":"","email":"","name":""};
+  userData = {"username":"", 
+              "password":"",
+              "email":"",
+              "name":"",
+              "body":{
+                "apk_key":"",
+                "permiso":"",
+                "empresa":""
+              }
+            };
   constructor(public navCtrl : NavController, public authService : AuthService,public toastCtrl: ToastController) {}
 
   ionViewDidLoad() {
@@ -33,21 +43,26 @@ export class Signup {
     }
   signup() {
     if(this.userData.username && this.userData.password && this.userData.email && this.userData.name){
-      //Api connections
-    this.authService.postData(this.userData, "signup").then((result) =>{
-    this.resposeData = result;
-    console.log(this.resposeData);
-      this.tmpBSK = this.resposeData.userData;
-        console.log(this.tmpBSK);
-        
-     if(this.tmpBSK===undefined ){
-         console.log("no se pudo registrar por falta de criterios");
-         this.presentToast("Verifica que los datos esten correctos. El usuario requiere de almenos 3 caracteres, la contraseña requiere de al menos 6 caracteres");
-      }else{
-         console.log(this.resposeData.userData); 
-         localStorage.setItem('userData', JSON.stringify(this.resposeData) )
-         this.navCtrl.push(TabsPage);
-      }
+      
+      this.userData.body.apk_key="938a6b38e5092f1ccaede78f57665fdc";// apk Key de registro inicial
+      this.userData.body.permiso="1";                               // permiso inicial 
+      this.userData.body.empresa="67";                               // empresa inicial 
+      
+      this.authService.postData(this.userData, "signup").then((result) =>{
+      this.resposeData = result;
+      console.log(this.resposeData);
+        this.tmpBSK = this.resposeData.userData;
+          console.log(this.tmpBSK);
+          
+       if(this.tmpBSK===undefined ){
+           console.log("no se pudo registrar por falta de criterios");
+           this.presentToast("Verifica que los datos esten correctos. El usuario requiere de almenos 3 caracteres, la contraseña requiere de al menos 6 caracteres");
+        }else{
+         /* console.log(this.resposeData.userData); 
+          localStorage.setItem('userData', JSON.stringify(this.resposeData) );*/
+          localStorage.setItem('tmpData', JSON.stringify({"username": this.userData.username}) );
+          this.navCtrl.push(Login);
+        }
 
   
 

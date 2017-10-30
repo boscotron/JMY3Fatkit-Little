@@ -182,7 +182,7 @@ nombreUsuario(){const d=JSON.parse(localStorage.getItem('userData'));
 vNE(id){
   var aa=this.jmyApis.datosEmpresa(this.jmyApis.empresaactual());
   console.log(aa);
-  return aa.nombre;
+  return (aa!=undefined)? aa.nombre :"Sin empresa";
 }
 cambiarEmpresa(){const idEmpresa = this.formulario.idEmpresa;
   this.vermenu(idEmpresa);location.reload();

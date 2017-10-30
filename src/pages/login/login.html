@@ -1,34 +1,35 @@
-
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Ingresa</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
 <ion-content padding>
   <ion-grid>
     <ion-col col-sm-12 offset-md-4 col-md-4 >
-      <ion-list>
+       <div class="center-block w-xxl w-auto-xs p-y-md center">
+          <img src="assets/imgs/bananalogo.png" class="logo"/>
+          <div class="p-a-md box-color r box-shadow-z1 text-color m-a">
+            <div>
+             Si ya tienes entra con tu cuenta.
+            </div>
+            <form name="form">
+              <div class="md-form-group float-label">
+                <input type="email" class="md-input"  [(ngModel)]="userData.username" name="username" required>
+                <label>Email o usuario</label>
+              </div>
+              <div class="md-form-group float-label">
+                <input type="password" class="md-input" [(ngModel)]="userData.password" name="password" required>
+                <label>Contraseña</label>
+              </div>      
+              <div class="m-b-md">        
+                <label class="md-check">
+                  <input type="checkbox"><i class="primary"></i> Mantenerme conectado
+                </label>
+              </div>
+              <button class="btn primary btn-block p-x-md" (click)="login()">Entrar</button>
+            </form>
+          </div>
 
-        <ion-item>
-          <ion-label floating>Usuario o email</ion-label>
-          <ion-input type="text" value="" [(ngModel)]="userData.username"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Contraseña</ion-label>
-          <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
-        </ion-item>
-
-        <button ion-button block color="energy" (click)="login()">Entrar</button>
-        <button ion-button block color="primary" (click)="repass()">Recupera tu contraseña</button>
-        <button ion-button block color="primary" (click)="signup()">Registrate</button>
-
-      </ion-list>
+          <div class="p-v-lg text-center">
+            <div class="m-b"><a class="text-primary _600" (click)="repass()">¿Olvidaste tu contraseña?</a></div>
+            <div>¿No tienes cuenta? <a class="text-primary _600" (click)="signup()">Registrate</a></div>
+          </div>
+        </div>
     </ion-col>
   </ion-grid>
 </ion-content>
-
-

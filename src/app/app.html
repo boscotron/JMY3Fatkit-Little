@@ -21,7 +21,7 @@
           </ion-avatar>
           <h2>{{nombreUsuario()}}</h2>
           <p>{{nombreEmpresa}}</p>
-        </ion-item>
+        </ion-item> 
 
         <ion-item class="tools">
           <ion-col no-padding no-margin>
@@ -55,12 +55,11 @@
       </ion-card>
     <ion-list>
         <div *ngFor="let p of pagesView" (click)="openPage(p)">
-        <button menuClose ion-item>
-          <ion-icon name="{{p.icon}}"></ion-icon>
-          {{p.title}}
-        </button>
-      </div>
-        <button menuClose ion-item color="primary" (click)="logout()">Salir</button>
+          <button menuClose ion-item>
+            <ion-icon name="{{p.icon}}"></ion-icon>
+            {{p.title}}
+          </button>
+        </div>
     </ion-list>
      </ion-content>
 

@@ -27,6 +27,13 @@ export class Login {
             };
 
   constructor(public navCtrl: NavController, public jmyApis: jmyapis, public authService: AuthService, private toastCtrl:ToastController, public menu: MenuController, private jmyDB: JMYDB, private platform: Platform) {
+
+    var data = JSON.parse(localStorage.getItem('tmpData'));
+    if(data!=undefined){
+      this.userData.username = data.username;
+    }
+    console.log(data); //data.username
+    
   }
 
   ionViewDidLoad() {
@@ -43,8 +50,8 @@ export class Login {
       if(this.resposeData.userData){
         localStorage.setItem('userData', JSON.stringify(this.resposeData) );
         localStorage.setItem('jmyData', JSON.stringify(this.resposeData.jmyapi) );
-        //this.navCtrl.push(TabsPage);
-        //this.menu.enable(true);
+        this.navCtrl.push(TabsPage);
+        this.menu.enable(true);
         this.presentToast("Cargando...");
         location.reload();
       }else{

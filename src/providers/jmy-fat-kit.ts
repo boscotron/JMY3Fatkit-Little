@@ -67,6 +67,8 @@ infoUsuario() {
     }
   }
   guardar(data){
+    console.log(this.uPD);
+    
     this.fm.nombre=data.nombre;
     this.fm.correo=data.correo;
     this.fm.pass=data.pass;

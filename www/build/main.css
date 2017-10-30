@@ -32996,6 +32996,42 @@ page-home #udpateBox textarea {
   width: 100%;
 }
 
+page-login .content {
+  background-color: #f0f0f0;
+}
+
+page-login .logo {
+  height: 100px;
+}
+
+page-login .center {
+  text-align: center;
+}
+
+page-repass .content {
+  background-color: #f0f0f0;
+}
+
+page-repass .logo {
+  height: 100px;
+}
+
+page-repass .center {
+  text-align: center;
+}
+
+page-signup .content {
+  background-color: #f0f0f0;
+}
+
+page-signup .logo {
+  height: 100px;
+}
+
+page-signup .center {
+  text-align: center;
+}
+
 page-welcome #welcome {
   background: #f2b632;
 }
